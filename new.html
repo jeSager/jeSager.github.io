@@ -1,33 +1,530 @@
 <!DOCTYPE html>
 <html>
-<title>Hello Strapdown</title>
+<title>Prolog Notes</title>
 
 <xmp theme="united" style="display:none;">
 
+# Prolog Tutorial Notes
 
-# jeSager.github.io
-  
-website
-  
-  
-* One
-  - one-one
-  - one-two
-* Two
-* Three
+> These notes were taken using the **[Derek Banas YouTube Tutorial](https://www.youtube.com/watch?v=SykxWpFwMGs)**
 
-&nbsp;
-  
-  
-1. one
-2. two
-  a. two-one
-1. three
+--------------------------------------------------------------------------------
 
-> this is a quote
-> blah
+# General Definitions, etc
 
-**:)**
+````
+KB                      term that refers to the knowledge base (prolog database)
+predicite               term for a prolog command
+gprolog                 linux command to start prolog
+halt.                   predicite to quit prolog
+[kb].                   predicite that loads (compiles) the KB file named kb
+consult('kb.pl').       predicite similar to the one above
+listing.                predicite that shows contents of the loaded KB
+:-                      defines a rule (like 'if' in other languages)
+                          * general useage:
+                              that :- this
+                              that IF this
+                              that is true if this is true
+                          * More concrete examples below
+
+````
+> Notes:
+> With the prolog console: The "up" key works the same way it does with the linux console.
+> Prolog is not a typical procedural language.
+
+--------------------------------------------------------------------------------
+
+# Introduction Examples
+
+## Example Program with Escape Character
+````
+write('Hello World), nl,
+write('Let\'s Program).
+````
+
+## Example using a condition statement
+* Place the code below in a file called kb.pl
+* How do I read line 2 in English?
+  - Juliet loves Romeo IF Romeo loves Juliet
+  - Therfore:  Because of line 1, line 2 evaluates to true
+````
+loves(romeo, juliet).
+loves(juliet, romeo) :- loves(romeo, juliet).
+````
+
+* From the prolog console load kb.pl this way:
+````
+[kb].
+````
+* Ask the prolog console to evaluate the condition statement using the next
+  block
+  - We can read the code as:  "Does Juliet love Romeo?"
+  - In prolog these "condition statements", facts and rules are known as clauses
+````
+loves(juliet, romeo).
+````
+  - The console should reply:
+````
+yes
+````
+
+## Atoms
+* Always start with an lowercase letter
+* Static in the KB
+* Examples of atoms are "romeo" and "juliet" _(above)_
+
+## Variables
+* Objects that are un-named at execution time
+* Allow you to answer questions
+* Always start with an uppercase letter
+
+## Objects can be atoms or variables
+* Never start an object with an underscore
+* Underscores can be within object names
+* Object names can have spaces if you like to use quotes: 'why why why'
+
+### Example Variable Useage
+> Prolog console input
+````
+loves(romeo, X).
+````
+
+> Prolog console output:
+
+````
+X = juliet
+(1ms) yes
+````
+
+--------------------------------------------------------------------------------
+
+# What is a Fact?
+
+### Example of a Fact from initial code
+````
+loves(romeo, juliet).
+````
+
+## The Format Ordering of a Fact
+1. Relationship
+   * example: love
+1. Objects between parentheses
+   * An object could be an atom
+     - Example: romeo
+   * An object could be a variable
+     - Example: X
+1. Dot
+
+
+--------------------------------------------------------------------------------
+
+# Creating a KB
+## Organization
+* Keep like relationships together _(as below)_
+* Save this within your KB
+````
+male(albert).
+male(bob).
+male(bill).
+male(carl).
+male(charlie).
+male(dan).
+male(edward).
+
+female(alice).
+female(betsy).
+female(diana).
+````
+* Reload the KB:
+````
+[kb].
+````
+### The _listing_ command
+* Observe results from the following:
+> Console
+````
+listing(male).
+````
+> Console Input
+````
+listing(female).
+````
+
+
+### Cycling through multiple results
+> Console Input
+````
+male(X), female(Y)
+````
+
+> Console Output
+````
+X = albert
+Y = alice ?
+````
+* If you press the semicolon and enter, you will receive the next output:
+> Console Output
+````
+X = albert
+Y = betsy ?
+````
+* Continuing to press the semicolon and enter, you will see every combination.
+
+--------------------------------------------------------------------------------
+
+# Creating a Rule
+
+> Add to the KB
+````
+happy(albert).
+happy(alice).
+happy(bob).
+happy(bill).
+with_albert(alice).
+
+````
+
+### To create a rule that states:
+* Albert runs if he's happy
+
+> Add to the KB
+````
+runs(albert) :- happy(albert).
+````
+
+> Console Input
+````
+[kb].
+runs(albert).
+````
+> Console Output
+````
+yes
+````
+
+## Creating a rule with multiple conditions
+* Alice dances if she's happy and with albert.
+  - **"And" is the comma!**
+
+> Add to the KB
+````
+dances(alice) :-
+  happy(alice),
+  with_albert(alice).
+
+swims(bob) :-
+  happy(bob),
+  near_water(bob).
+````
+
+> Console Input
+````
+[kb].
+dances(alice).
+````
+> Console Output
+````
+yes
+````
+
+> Console Input
+````
+swims(bob).
+````
+> Console Output
+````
+uncaught exception: error(existence_error(procedure,near_water/1),swims/1)
+````
+### We did not define our predicite with a fact
+
+# Define a Predicite
+> Add to the KB
+````
+does_alice_dance :- dances(alice),
+  write('When Alice is happy and with Albert she dances').
+````
+> Console Input
+````
+[kb].
+does_alice_dance.
+````
+> Console Output
+````
+When Alice is happy and with Albert she dances
+
+yes
+````
+
+
+## A definition with separate facts
+### Will this work?
+
+> Alter the KB
+````
+swims(bob) :-
+  happy(bob).
+
+swims(bob) :-
+  near_water(bob).
+````
+
+> Console Input
+````
+[kb].
+swims(bob).
+````
+### _Press enter when the console prompts_:  **true ?**
+> Console Output
+````
+true ?
+
+yes
+````
+--------------------------------------------------------------------------------
+
+# Variables
+* Remember, use a capital letter -- these are unnamed
+
+> Add to KB
+````
+parent(albert, bob).
+parent(albert, betsy).
+parent(albert, bill).
+
+parent(alice, bob).
+parent(alice, betsy).
+parent(alice, bill).
+
+
+parent(bob, carl).
+parent(bob, charlie).
+
+````
+
+### Who are Bob's parents?
+> Console Input
+````
+[kb].
+parent(X, bob).
+````
+
+
+### Press semicolon to receive additional results
+* Here, the semicolon stands for "or"
+* Below, "X" represents two individual variables from a querry
+
+> Console Output
+````
+X = albert ? ;
+
+X = alice ? ;
+
+no
+````
+
+### Who is the parent of Bob that also dances?
+* Now we will have only one result:
+> Console Input
+````
+parent(X, bob), dances(X).
+````
+
+> Console Output
+````
+X = alice ? ;
+
+no
+````
+
+
+### Does Carl have grandparents?
+* Below, Y is Carl's parent, and X will be Carl's grandparent
+* Remember to use the semicolon
+> Console Input
+````
+parent(Y, carl), parent(X, Y).
+````
+> Console Output
+````
+X = albert
+Y = bob ? ;
+
+X = alice
+Y = bob ? ;
+````
+* This shows Albert and Alice are Bob's parents and Bob is Carl's parent
+
+----
+
+## **Unless it's useful, future output will be ommitted**
+### Just test the new conditions -- you get the idea.
+
+----
+
+### Does Albert have grandchildren?
+* This is a similar querry, but we must rearrange the variables
+> Console Input
+````
+parent(albert, X), parent(X, Y).
+````
+* Remember to use the semicolon for more output
+* Obviously, the console returns Carl, but we also find that Charlie is also a
+  grandchild of Albert.
+
+## Creating a custom predicite
+* Here, we are just formatting our previous output
+* Again, use the semicolon _(OR)_ for more output
+> Add to KB
+````
+get_al_grandchild :-
+  parent(albert, X),
+  parent(X, Y),
+  write('Albert\'s grandchild is '),
+  write(Y), nl.
+````
+> Console Input
+````
+[kb].
+get_al_grandchild.
+````
+
+### Do Carl and Charlie have a common parent?
+> Console Input
+````
+parent(X,carl), parent(X,charlie).
+````
+
+## Using 'format' to 'write' _(something like printf)_
+* ~w for a variable
+* ~s for a string
+* ~n for a new-line
+### An introduction to prolog [lists]
+* In the example below, in between the [brackets], there is a list
+* The list defines the variable and the string
+> Add to KB
+````
+get_grandparent :-
+  parent(X, carl),
+  parent(X, charlie),
+  format('~w ~s grandparent ~n', [X, "is the"]).
+````
+
+
+### New Fact: Bob and Bill are brothers,
+* Is Bob their uncle?
+> Add to KB
+````
+brother(bob, bill).
+````
+> Console Input
+````
+parent(X, carl), brother(X, Y).
+````
+----
+
+# Axioms / Derrived Facts
+
+* Axiom:  a statement or proposition that is regarded as being established
+* Up until now, facts have been defined atomically
+* Example: Analize the code to find any grandparents of X
+  - If A = Y = a grandparent of X
+    - Z exists such that Z is the parent of X
+    - Y exists such that Y is the parent of Z
+> Add to KB
+````
+grandparent(X, Y) :-
+  parent(Z, X),
+  parent(Y, Z).
+````
+> Console Input
+````
+[kb].
+grandparent(carl, A).
+````
+
+### If the value(s) on the right is/are true, the value on the left is true
+* Spacing and linebreaks are arbitrary
+> Just an Example
+````
+% that if this or this or this
+% that :- this ,  this ,  this.
+````
+
+> Add to KB
+````
+blushes(X) :- human(X).
+human(you).
+````
+> Console Input
+````
+[kb].
+blushes(you).
+````
+
+
+
+## The Anonymous Variable **_**
+
+### Create more elaborite facts
+* Tybalt stabs Mercutio with a sword
+* Romeo hates anyone that stabs Mercutio with a sword
+* Does Romeo hate anyone?
+* Are there any males defined in the KB?
+  - Use the semicolon _(Logical OR)_ to view all the "results" _(trues)_
+> Add to KB
+````
+stabs(tybalt, mercutio, sword).
+hates(romeo, X) :- stabs(X, mercutio, sword).
+````
+> Observe the Results from this console input
+````
+[kb].
+hates(romeo, X).
+male(_).
+````
+
+## Math **and** input manipulation
+### **is** is interpreted as an equals sign
+### Try this code:
+* If age is 5, go to kindergarten
+* If age is 6, go to first grade
+* Else, age is equal to Other
+  - Grade is equal to other minus five
+  - Write:  Go to grade
+> Add to KB
+````
+what_grade(5) :-
+  write('Go to kindergarten').
+
+what_grade(6) :-
+  write('Go to first grade').
+
+what_grade(Other) :-
+  Grade is Other - 5,
+  format('Go to grade ~w', [Grade]).
+````
+> Console Input
+````
+[kb].
+what_grade(10).
+````
+* The output is "Go to grade 5," but what if you input 5 and use the semicolon?
+
+
+----
+
+# Structures
+* Made of many objects or components
+
+:::::::::::::: 26 minutes
+
+
+
+
+
+
+
+
 
 
 </xmp>
