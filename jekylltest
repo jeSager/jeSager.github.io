@@ -1,0 +1,397 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+    Jekyll
+  </title>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css" rel="stylesheet"/>
+  <style type="text/css">
+   ::selection,a::selection{background:rgba(255,255,0,.3)}a,a::selection{color:#0645ad}hr,img{border:0}a,ins{text-decoration:none}::selection,ins,mark{color:#000}dfn,mark{font-style:italic}hr,ol,p,ul{margin:1em 0}table tr td,table tr th{border:1px solid #ccc;text-align:left;padding:6px 13px;margin:0}hr,pre code,table,table tr{padding:0}pre,pre code{white-space:pre}html{font-size:100%;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{color:#444;font-family:Georgia,Palatino,"Palatino Linotype",Times,"Times New Roman",serif;font-size:12px;line-height:1.5em;padding:1em;margin:auto;max-width:42em;background:#fefefe}a:visited{color:#0b0080}a:hover{color:#06e}a:active{color:#faa700}a:focus{outline:dotted thin}a:active,a:hover{outline:0}::-moz-selection{background:rgba(255,255,0,.3);color:#000}a::-moz-selection{background:rgba(255,255,0,.3);color:#0645ad}img{max-width:100%;-ms-interpolation-mode:bicubic;vertical-align:middle}h1,h2,h3,h4,h5,h6{font-weight:400;color:#111;line-height:1em}b,h4,h5,h6,mark,strong,table tr th{font-weight:700}h1{font-size:2.5em}h2{font-size:2em}h3{font-size:1.5em}h4{font-size:1.2em}h5{font-size:1em}h6{font-size:.9em}blockquote{color:#666;margin:0;padding-left:3em;border-left:.5em #EEE solid}hr{display:block;height:2px;border-top:1px solid #aaa;border-bottom:1px solid #eee}code,kbd,pre,samp{color:#000;font-family:monospace,monospace;font-size:.98em}pre{white-space:pre-wrap;word-wrap:break-word}ins{background:#ff9}mark{background:#ff0}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}ol,ul{padding:0 0 0 2em}li p:last-child{margin:0}dd{margin:0 0 0 2em}table{border-collapse:collapse;border-spacing:0}td{vertical-align:top}@media only screen and (min-width:480px){body{font-size:14px}}@media only screen and (min-width:768px){body{font-size:16px}}@media print{blockquote,img,pre,tr{page-break-inside:avoid}*{background:0 0!important;color:#000!important;filter:none!important;-ms-filter:none!important}body{font-size:12pt;max-width:100%}a,a:visited{text-decoration:underline}hr{height:1px;border:0;border-bottom:1px solid #000}a[href]:after{content:" (" attr(href) ")"}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}blockquote,pre{border:1px solid #999;padding-right:1em}img{max-width:100%!important}@page :left{margin:15mm 20mm 15mm 10mm}@page :right{margin:15mm 10mm 15mm 20mm}h2,h3,p{orphans:3;widows:3}h2,h3{page-break-after:avoid}}table tr{border-top:1px solid #ccc;background-color:#fff;margin:0}table tr:nth-child(2n){background-color:#aaa}table tr td :first-child,table tr th :first-child{margin-top:0}table tr td:last-child,table tr th :last-child{margin-bottom:0}code,tt{margin:0 2px;padding:0 5px;white-space:nowrap;border:1px solid #eaeaea;background-color:#f8f8f8;border-radius:3px}pre code{margin:0;border:none;background:0 0}.highlight pre,pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}
+  </style>
+ </head>
+ <body>
+  <h1 id="jekyll-site-testing">
+   Jekyll Site Testing
+  </h1>
+  <hr/>
+  <h2 id="the-original-site">
+   The Original Site
+  </h2>
+  <h4 id="there-were-a-couple-issues-with-the-original-site-that-were-causing-some-problems-for-me">
+   There were a couple issues with the original site that were causing some problems for me:
+  </h4>
+  <ul>
+   <li>
+    If I open the
+    <a href="https://cse.sc.edu/~jbakos">
+    </a>
+    <a href="https://cse.sc.edu/~jbakos">
+     https://cse.sc.edu/~jbakos
+    </a>
+    site using firefox at all, most all of the text is colored white.
+   </li>
+   <li>
+    There are more than a few css definitions that are a little strange.  The example I have here shows colors defined with nine digits.
+   </li>
+   <li>
+    I also noticed the navigation doesn’t have an active class, so it’s a little confusing at times.
+   </li>
+  </ul>
+  <h4 id="the-new-sites-css">
+   The New Site’s CSS
+  </h4>
+  <ul>
+   <li>
+    Because I was trying to fix some of the problems above while I was trying to implement something new at the same time, the new site’s css is pretty disorganized.  It works pretty well, but it will be hard to edit until the code is really gone over.
+   </li>
+   <li>
+    I started the project with the templates that are defaultly loaded by Jekyll, so there’s a little extra house keeping to do with that.  Much of it can be trashed.
+   </li>
+   <li>
+    I also placed a bootstrap menu on the new site.  While the old menu can be fixed, this one is mobile ready, so I thought you might be interested in it.  It’s just the default template from the official site:
+    <br/>
+    <a href="https://getbootstrap.com/examples/navbar-fixed-top/">
+    </a>
+    <a href="http://getbootstrap.com">
+     getbootstrap.com
+    </a>
+    ‘s template
+   </li>
+   <li>
+    If you make the browser narrow enough you can test the mobile view
+   </li>
+   <li>
+    While the menu was a pretty easy, copy-paste job, I just wanted you to know there are still some css bugs that haven’t been worked out quite yet.
+   </li>
+  </ul>
+  <h2 id="how-does-jekyll-work">
+   How does Jekyll Work?
+  </h2>
+  <ul>
+   <li>
+    It is commonly used to generate some of the more intricate static sites you’ve probably seen through free hosting services, like:
+    <a href="https://pages.github.com/">
+     github pages
+    </a>
+    .
+   </li>
+   <li>
+    But Jekyll is only for
+    <strong>
+     static
+    </strong>
+    site generation.  This means Jekyll never needs to be installed on a server.  It only needs to be installed on your local machine.  From there, you will compile your site.
+   </li>
+   <li>
+    Even the code you write doesn’t even need to be on the webserver at all.  The only thing that
+    <em>
+     needs
+    </em>
+    to be uploaded to your webserver is the contents of the
+    <code>
+     _site
+    </code>
+    folder.
+   </li>
+   <li>
+    When you start developing, you turn on the Jekyll server with the command:
+    <br/>
+    <code>
+     sudo jekyll serve
+    </code>
+   </li>
+   <li>
+    Whenever you save a file within your site’s directory, Jekyll will recompile your website and regenerate the contents of the
+    <code>
+     _site
+    </code>
+    folder.  Don’t write in the
+    <code>
+     _site
+    </code>
+    folder at all.  Only Jekyll writes there.  Then, you upload the
+    <code>
+     _site
+    </code>
+    folder to your webserver.
+   </li>
+   <li>
+    Jekyll uses
+    <a href="https://shopify.github.io/liquid/">
+     liquid
+    </a>
+    for templating, which really just reminds me of a cheap version of python’s
+    <a href="https://docs.djangoproject.com/en/1.11/ref/templates/builtins/">
+     django
+    </a>
+    .  In fact, I’m sure much of the code I’ve written here will probably work in a django template –
+    <em>
+     the other way around
+    </em>
+    – not so much.  Django’s pretty extendable and it can work with a lot of databases.
+   </li>
+  </ul>
+  <h3 id="but-what-does-this-all-mean">
+   <em>
+    But what does this all mean?!?!
+   </em>
+  </h3>
+  <ul>
+   <li>
+    Basically, it means we can put for loops and conditionals right inside the html, like so:
+   </li>
+  </ul>
+  <pre><code class="django">{% for p in site.data.projects %}
+  &lt;div class="project_block"&gt;
+    &lt;div class="project_header"&gt;
+      &lt;div class="project_funder"&gt;
+        &lt;img src="/images/{{p.image}}" class="project_funder"&gt;
+      &lt;/div&gt;
+      &lt;div class="project_title"&gt;
+        {% if p.link != "" %}&lt;a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1421059"&gt;{% endif %}
+        &lt;h4&gt;{{ p.title }}&lt;/h4&gt;
+        {% if p.link  != "" %}&lt;/a&gt;{% endif %}
+      &lt;/div&gt;
+    &lt;/div&gt;
+    {{ p.description }}
+  &lt;/div&gt;
+{% endfor %}
+</code></pre>
+  <ul>
+   <li>
+    And that, is about all the unique code that is on the projects page now.  Unique is
+    <em>
+     important
+    </em>
+    because these layouts also support templating.
+   </li>
+   <li>
+    <strong>
+     BUT
+    </strong>
+    that’s not what the real question should be.  If that’s all your code, where’s your content?  …I guess I’ll get back that that in a second, heh.
+   </li>
+   <li>
+    Anyway, this isn’t the only code that Jekyll is compiling.  Nope, it also uses SCSS.  CSS alone doesn’t allow us variables to define a certain color as primary on our site.  That’s why SCSS is useful.  It makes it easy to change things like that.  I felt that you’d want the data prioritized though, so I haven’t really set up any variables or messed with it too much.  There are some variables that were defined with the Jekyll startup file, but I haven’t really looked into them much.  I’m sure it would be more imperative if this were some web design company and we were building sites with the knowledge that a customer might not like something or it was something that needed to turned around and resold.  Still, I suppose it’s nice to know they are there.
+   </li>
+  </ul>
+  <pre><code class="scss">$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-size:   16px;
+$base-font-weight: 400;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
+</code></pre>
+  <h2 id="jeykll-site-structure">
+   Jeykll Site Structure
+  </h2>
+  <ul>
+   <li>
+    Here, I’m going to try to touch base on some of the more important parts of the site.
+   </li>
+  </ul>
+  <h3 id="configyml">
+   /config.yml
+  </h3>
+  <ul>
+   <li>
+    Site-wide variables can be defined here:  site-name, meta data, etc.
+   </li>
+   <li>
+    Probably the only confusing part of the file is what I put in:  The Collection.
+   </li>
+  </ul>
+  <pre><code class="yml">collections:
+  my_pages:
+    output:     true
+    permalink: /:path/
+</code></pre>
+  <ul>
+   <li>
+    Although Jekyll wouldn’t care if you just threw all the files in the root directory, I decided to create a directory for your pages.  It’s a bit more than a directory since these files can contain variables that can be referenced using the collection.
+   </li>
+   <li>
+    Directories that work with variables that way in Jekyll start with an underscore.  Just the directory, not the reference, i.e.,
+    <code>
+     {% for page in site.my_pages %}
+    </code>
+    …
+   </li>
+   <li>
+    So, I created a directory called _my_pages and it has unique, concise, version of each of the pages from the old site in it.  How did they get that way?  We should start looking at the similar directories that Jekyll has set up by default…
+   </li>
+  </ul>
+  <h3 id="_layouts">
+   /_layouts
+  </h3>
+  <ul>
+   <li>
+    Well, it’s a directory, I left it pretty much as it came and I’ve only used one file:
+    <br/>
+    <strong>
+     default.html
+    </strong>
+   </li>
+  </ul>
+  <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  {% include head.html %}
+  &lt;body&gt;
+    {% include header.html %}
+    &lt;div class="page-content"&gt;
+      &lt;div class="wrapper"&gt;
+        {{ content }}
+      &lt;/div&gt;
+    &lt;/div&gt;
+    {% include footer.html %}
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+  <ul>
+   <li>
+    This file is basically the cornerstone for the whole site.  Every opening and closing html tag is defined right here.
+   </li>
+   <li>
+    I’m going to skip the include directory.  After looking at this, I’m sure you can figure that much out.  Your nav is in the header.html, etc.
+   </li>
+   <li>
+    I’m also going to skip the post directory.  There’s a lot of info about that online.  It’s really for blogging.  One thing I should mention is that markdown is supported.  It’s not going to mix well with the liquid though.
+    <em>
+     (no markdown for loops)
+    </em>
+   </li>
+  </ul>
+  <h2 id="the-data">
+   The Data
+  </h2>
+  <ul>
+   <li>
+    This part was probably the biggest pain.  Mostly because it involved a ton of reformatting.  I felt it’s what you wanted because if I was just linking the html together, well, I could’ve done that with javascript includes.
+   </li>
+   <li>
+    Anyway, like the
+    <code>
+     _my_pages
+    </code>
+    directory the
+    <code>
+     _data
+    </code>
+    directory contains a file for each page in your site.
+   </li>
+   <li>
+    One thing that’s worth noting is that this directory is part of Jekyll.  What’s important about that is that it allows for a feature that collections ( like
+    <code>
+     my_pages
+    </code>
+    ) do not.  The
+    <code>
+     _data
+    </code>
+    directory supports nesting, but collections really should be at the root.  This means, the code structure must be relatively flat.
+   </li>
+   <li>
+    Here is an example of how your data is being stored.  Note, this file is 380 lines long.  I’m glad I learned those keyboard macros.
+   </li>
+  </ul>
+  <p>
+   <strong>
+    /_data/publications.yml
+   </strong>
+  </p>
+  <pre><code class="yml">- title       : System-Level, FPGA-Based, Real-Time Simulation of Ship Power Systems
+  year        : 2017
+  source      : IEEE Trans. on Energy Conversion Systems, Vol. 32, No. 2.
+  authors     : Matthew Milton, Andrea Benigni, Jason Bakos
+  download    : tecs17_paper.pdf
+
+
+
+- title       : High-Level Synthesis of a Genomic Database Search Enginek
+  year        : 2016
+  source      : Proc. 2016 International Conference on Reconfigurable Computing and FPGAs (ReConFig 2016).
+  authors     : Rasha Karakchi, Jordan Bradshaw, Jason D. Bakos
+  download    : reconfig16_paper.pdf
+
+</code></pre>
+  <ul>
+   <li>
+    Well, if you ever want to extend this site and
+    <a href="https://gist.github.com/nvg58/bffa6a797fbd7915df51">
+     make it dynamic
+    </a>
+    , I’m sure it will be much easier now.
+   </li>
+   <li>
+    It’s basically xml that’s a little easier on the eyes.
+   </li>
+  </ul>
+  <h2 id="clearest-context">
+   Clearest Context
+  </h2>
+  <h3 id="here-im-going-to-put-the-excerpt-from-the-groupyml-next-to-the-grouphtml">
+   Here, I’m going to put the excerpt from the group.yml next to the group.html.
+  </h3>
+  <p>
+   <strong>
+    /_data/group.yml
+   </strong>
+  </p>
+  <pre><code class="yml">- name:    Jason D. Bakos
+  status:  current
+  country: U.S.A.
+  title:   Lab Director
+  img:     bakos.jpg
+
+- name:    Madushan Abeysinghe
+  status:  current
+  country: Sri Lanka
+  title:   Ph.D. Student
+  img:     abeysinghe.jpg
+</code></pre>
+  <p>
+   <strong>
+    /_my_pages/group.html
+   </strong>
+  </p>
+  <pre><code class="django">{% assign current_members = site.data.members | where: "status", "current" %}
+{% for member in current_members %}
+  &lt;div class="polaroid"&gt;
+    &lt;img src="/images/{{member.img}}" class="group_photo"/&gt;
+    &lt;div class="my_container"&gt;
+      {{member.name}}&lt;br/&gt;
+      {{member.country}}&lt;br/&gt;
+      {{member.title}}
+    &lt;/div&gt;
+  &lt;/div&gt;
+{% endfor %}
+</code></pre>
+  <h1 id="final-important-note">
+   FINAL IMPORTANT NOTE!
+  </h1>
+  <ul>
+   <li>
+    Notice that there are colon’s in the yml file.
+   </li>
+   <li>
+    This means there is only one way to put a colon in your data,
+    <strong>
+     html entity
+    </strong>
+   </li>
+  </ul>
+  <h1 id="58">
+   &amp#58;
+  </h1>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js">
+  </script>
+  <script>
+   hljs.initHighlightingOnLoad();
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   MathJax.Hub.Config({"showProcessingMessages" : false,"messageStyle" : "none","tex2jax": { inlineMath: [ [ "$", "$" ] ] }});
+  </script>
+ </body>
+</html>
